@@ -10,18 +10,15 @@ import SwiftUI
 struct RecipeDetailView: View {
     var recipe:Recipe
     var body: some View {
-        ScrollView{
-            
+        
+        ScrollView {
             VStack(alignment: .leading){
                 
-                
-            
             // MARK: Recipe Image
             Image(recipe.image)
                 .resizable()
                 .scaledToFill()
-            
-            
+
             // MARK: Ingredients
             VStack(alignment: .leading) {
                 Text("Ingredients")
@@ -36,8 +33,7 @@ struct RecipeDetailView: View {
             
             // MARK: Divider
             Divider()
-                
-            
+                            
             // MARK: Directions
             VStack(alignment: .leading) {
                 Text("Directions")
@@ -63,3 +59,4 @@ struct RecipeDetailView_Previews: PreviewProvider {
         RecipeDetailView(recipe: model.recipes[0])
     }
 }
+

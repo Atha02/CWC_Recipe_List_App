@@ -18,8 +18,17 @@ class Recipe:Identifiable, Decodable {
     var cookTime: String
     var totalTime: String
     var servings: Int
-    var ingredients: [String]       //sind in JSON beides Arrays
+    var ingredients: [Ingredients]       //sind in JSON beides Arrays
     var directions: [String]
+    var highlights: [String]
     
     
+}
+
+class Ingredients: Identifiable, Decodable {
+    var id: UUID?
+    var name: String
+    var num: Int?
+    var denom:Int?
+    var unit: String?
 }
