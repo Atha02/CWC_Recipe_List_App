@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct RecipeDetailView: View {
+    
     var recipe:Recipe
+    
     var body: some View {
         
         ScrollView {
-            VStack(alignment: .leading){
+            
+            VStack(alignment: .leading) {
                 
             // MARK: Recipe Image
             Image(recipe.image)
@@ -24,13 +27,15 @@ struct RecipeDetailView: View {
                 Text("Ingredients")
                     .font(.headline)
                     .padding([.top, .bottom], 5)
-                
-                ForEach(recipe.ingredients, id:\.self){ item in
-                    Text("-" + item)
-                        
+
+                ForEach(recipe.ingredients){ item in
+                    Text("-" + item.name)
+
                 }
-            }.padding(.horizontal)
-            
+            }
+            .padding(.horizontal)
+
+
             // MARK: Divider
             Divider()
                             
@@ -41,11 +46,13 @@ struct RecipeDetailView: View {
                     .padding([.bottom, .top], 5)
                 
                 ForEach(0..<recipe.directions.count, id:\.self){ index in
+                    
                     Text(String(index+1) + "." + recipe.directions[index])
                         .padding(.bottom, 5)
                     
                 }
-            }.padding(.horizontal)
+            }
+            .padding(.horizontal)
             }
         }
         .navigationBarTitle(recipe.name)
